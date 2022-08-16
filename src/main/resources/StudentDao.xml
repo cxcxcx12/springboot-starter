@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <mapper   namespace="app.Dao.StudentDao">
+    <select  id="insertuser"  resultType="Java.lang.Interger">
+       INSERT INTO user(name,id,age) values (#{name},#{id},#{age})
+
+    </select>
+
+    <select  id="find"  resultType="app.pojo.Student">
+        select * from user
+        <where>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="age!=null">
+                and age=#{age}
+            </if>
+
+        </where>
+    </select>
+
+
+ </mapper>
